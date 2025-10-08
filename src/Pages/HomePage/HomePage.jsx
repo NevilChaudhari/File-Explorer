@@ -1,0 +1,79 @@
+import { useState } from "react";
+import { assets } from "../..//assets/assets.js";
+import "./HomePage.css"
+
+function HomePage() {
+
+    const [pathInput, setPathInput] = useState(false);
+
+    return (
+        <div className="homePage">
+            <div className="action-bar">
+                <div className="options">
+                    <div className="option">
+                        <img src={assets.createIcon} alt="" className="icons" />
+                        <span>New</span>
+                    </div>
+                </div>
+
+                <div className="options">
+                    <div className="option">
+                        <img src={assets.cutIcon} alt="" className="icons" />
+                    </div>
+                    <div className="option">
+                        <img src={assets.copyIcon} alt="" className="icons" />
+                    </div>
+                    <div className="option">
+                        <img src={assets.pasteIcon} alt="" className="icons" />
+                    </div>
+                    <div className="option">
+                        <img src={assets.renameIcon} alt="" className="icons" />
+                    </div>
+                    <div className="option">
+                        <img src={assets.shareIcon} alt="" className="icons" />
+                    </div>
+                </div>
+
+                <div className="options">
+                    <div className="option">
+                        <img src={assets.sortIcon} alt="" className="icons" />
+                        <span>Sort</span>
+                    </div>
+                    <div className="option">
+                        <img src={assets.viewIcon} alt="" className="icons" />
+                        <span>View</span>
+                    </div>
+                </div>
+            </div>
+            <div className="top-bar">
+                <div className="navigationBtns">
+                    <div className="top-bar-back">
+                        <img src={assets.navigationArrowBack} alt="" className="icons top-barIcons"/>
+                    </div>
+                    <div className="top-bar-forward">
+                        <img src={assets.navigationArrowForward} alt="" className="icons top-barIcons"/>
+                    </div>
+                    <div className="top-bar-up">
+                        <img src={assets.navigationArrowUp} alt="" className="icons top-barIcons"/>
+                    </div>
+                </div>
+
+                <div className="top-bar-path">
+                    {!pathInput && (<div className="path" onClick={() => {setPathInput(true)}}>
+                        <img src={assets.Arrow} alt="" className="icons"/>
+                    </div>)}
+                    {pathInput && (<input type="text" className="pathInput" name="search" placeholder=""/>)}
+                </div>
+                <div className="top-bar-search">
+                    <img src={assets.searchIcon} alt="" className="icons"/>
+                    <input type="text" className="searchInput" name="search" placeholder="Search"/>
+                </div>
+            </div>
+            <div className="sidebar-nav"></div>
+            <div className="main-window" onClick={() => {setPathInput(false)}}></div>
+            <div className="bottom-info"></div>
+        </div>
+    )
+}
+
+export default HomePage;
