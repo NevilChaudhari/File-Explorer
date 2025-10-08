@@ -48,29 +48,31 @@ function HomePage() {
             <div className="top-bar">
                 <div className="navigationBtns">
                     <div className="top-bar-back">
-                        <img src={assets.navigationArrowBack} alt="" className="icons top-barIcons"/>
+                        <img src={assets.navigationArrowBack} alt="" className="icons top-barIcons" />
                     </div>
                     <div className="top-bar-forward">
-                        <img src={assets.navigationArrowForward} alt="" className="icons top-barIcons"/>
+                        <img src={assets.navigationArrowForward} alt="" className="icons top-barIcons" />
                     </div>
                     <div className="top-bar-up">
-                        <img src={assets.navigationArrowUp} alt="" className="icons top-barIcons"/>
+                        <img src={assets.navigationArrowUp} alt="" className="icons top-barIcons" />
                     </div>
                 </div>
 
                 <div className="top-bar-path">
-                    {!pathInput && (<div className="path" onClick={() => {setPathInput(true)}}>
-                        <img src={assets.Arrow} alt="" className="icons"/>
+                    {!pathInput && (<div className="path" onClick={() => { setPathInput(true) }}>
+                        <img src={assets.Arrow} alt="" className="icons" />
                     </div>)}
-                    {pathInput && (<input type="text" className="pathInput" name="search" placeholder=""/>)}
+                    {pathInput && (<input type="text" className="pathInput" name="search" placeholder="" />)}
                 </div>
                 <div className="top-bar-search">
-                    <img src={assets.searchIcon} alt="" className="icons"/>
-                    <input type="text" className="searchInput" name="search" placeholder="Search"/>
+                    <img src={assets.searchIcon} alt="" className="icons" />
+                    <input type="text" className="searchInput" name="search" placeholder="Search" />
                 </div>
             </div>
-            <div className="sidebar-nav"></div>
-            <div className="main-window" onClick={() => {setPathInput(false)}}></div>
+            <div className="Workspace">
+                <div className="sidebar-nav"></div>
+                <div className="main-window" onClick={() => { setPathInput(false) }}></div>
+            </div>
             <div className="bottom-info"></div>
         </div>
     )
