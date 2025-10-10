@@ -1,10 +1,48 @@
 import { useState } from "react";
-import { assets } from "../..//assets/assets.js";
+import { assets } from "../../assets/assets.js";
 import "./HomePage.css"
+import json from "../../data.json"
 
 function HomePage() {
 
     const [pathInput, setPathInput] = useState(false);
+
+    const [path, setPath] = useState("This PC /")
+
+    const [data, setData] = useState(json)
+
+    function AssignImg({ type }) {
+        if (type == "folder") {
+            return (<img src={assets.defaultFolder} alt="" className="typeIcon" />)
+        } else if (type == "drive") {
+            return (<img src={assets.drive} alt="" className="typeIcon" />)
+        } else if (type == "txt") {
+            return (<img src={assets.textFile} alt="" className="typeIcon" />)
+        } else {
+            return (<img src={assets.thisPC} alt="" className="typeIcon" />)
+        }
+    }
+
+    const List = ({ list }) => {
+        const [isExpanded, setIsExpanded] = useState({})
+        function toogleExpanded(name) {
+            setIsExpanded((prev) => ({ ...prev, [name]: !prev[name] }))
+        }
+        return (
+            <div className="list">
+                {list.map((node) => (
+                    <div key={node.id} className="nodeCont">
+                        <div className="node">
+                            {node.children && <img src={assets.Arrow} alt="" className={isExpanded?.[node.name] ? `notExpandedIcon` : `ExpandedIcon`} onClick={() => toogleExpanded(node.name)} />}
+                            <AssignImg type={node.type} />
+                            <span>{node.name}</span>
+                        </div>
+                        {node.children && isExpanded?.[node.name] && <List list={node.children} />}
+                    </div>
+                ))}
+            </div>
+        );
+    }
 
     return (
         <div className="homePage">
@@ -62,7 +100,7 @@ function HomePage() {
                     {!pathInput && (<div className="path" onClick={() => { setPathInput(true) }}>
                         <img src={assets.Arrow} alt="" className="icons" />
                     </div>)}
-                    {pathInput && (<input type="text" className="pathInput" name="search" placeholder="" />)}
+                    {pathInput && (<input type="text" className="pathInput" name="search" placeholder="" value={path} onChange={(e) => setPath(e.target.value)} />)}
                 </div>
                 <div className="top-bar-search">
                     <img src={assets.searchIcon} alt="" className="icons" />
@@ -70,10 +108,20 @@ function HomePage() {
                 </div>
             </div>
             <div className="Workspace">
-                <div className="sidebar-nav"></div>
+                <div className="sidebar-nav">
+                    <div className="dataTree">
+                        <List list={data} />
+                    </div>
+                </div>
                 <div className="main-window" onClick={() => { setPathInput(false) }}></div>
             </div>
-            <div className="bottom-info"></div>
+            <div className="bottom-info">
+                <span className="itemCount">15 items</span>
+                <div className="viewStyle">
+                    <img src={assets.listViewIcon} alt="" />
+                    <img src={assets.gridViewIcon} alt="" className="selectedViewStyle" />
+                </div>
+            </div>
         </div>
     )
 }

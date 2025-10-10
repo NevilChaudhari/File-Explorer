@@ -1,0 +1,63 @@
+[
+    {
+        "id": "1",
+        "name": "This PC",
+        "type": "root",
+        "children": [
+            {
+                "id": "2",
+                "name": "New Volume (C:)",
+                "type": "drive",
+                "children": [
+                    {
+                        "id": "6",
+                        "name": "backup",
+                        "type": "folder",
+                        "children": []
+                    },
+                    {
+                        "id": "7",
+                        "name": "Microsoft",
+                        "type": "folder",
+                        "children": []
+                    },
+                    {
+                        "id": "8",
+                        "name": "Users",
+                        "type": "folder",
+                        "children": []
+                    },
+                    {
+                        "id": "9",
+                        "name": "Windows",
+                        "type": "folder",
+                        "children": []
+                    },
+                    {
+                        "id": "10",
+                        "name": "Secret.txt",
+                        "type": "txt"
+                    }
+                ]
+            },
+            {
+                "id": "3",
+                "name": "New Volume (D:)",
+                "type": "drive",
+                "children": []
+            },
+            {
+                "id": "4",
+                "name": "New Volume (E:)",
+                "type": "drive",
+                "children": []
+            },
+            {
+                "id": "5",
+                "name": "New Volume (G:)",
+                "type": "drive",
+                "children": []
+            }
+        ]
+    }
+]

@@ -11,6 +11,12 @@ import navigationArrowForward from './navigationArrowForward.png'
 import navigationArrowUp from './navigationArrowUp.png'
 import searchIcon from './searchIcon.png'
 import Arrow from './Arrow.png'
+import listViewIcon from './listViewIcon.png'
+import gridViewIcon from './gridViewIcon.png'
+import defaultFolder from './defaultFolder.png'
+import drive from './Drive.jpg'
+import thisPC from './thisPC.png'
+import textFile from './textFile.png'
 
 export const assets = {
     createIcon,
@@ -26,4 +32,10 @@ export const assets = {
     navigationArrowUp,
     searchIcon,
     Arrow,
+    listViewIcon,
+    gridViewIcon,
+    defaultFolder,
+    drive,
+    thisPC,
+    textFile,
 }
